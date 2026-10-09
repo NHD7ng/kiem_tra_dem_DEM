@@ -1,0 +1,13 @@
+# Phiếu bàn giao DEM: người lập DEM điền, đặt cạnh file .tif với tên ban_giao.yaml
+file: khu1.tif
+sha256: ""                    # Linux/macOS: sha256sum khu1.tif ; Windows: Get-FileHash khu1.tif -Algorithm SHA256
+ngay_giao: ""                 # YYYY-MM-DD
+phien_ban: v1
+he_toa_do: "EPSG:3414"
+he_cao_do: ""                 # ví dụ EGM2008, ghi theo tài liệu dữ liệu nguồn
+nodata: -9999
+do_phan_giai_m: 30
+nguon_va_quy_trinh: ""        # dữ liệu gốc, phần mềm, phiên bản, các bước chính
+do_thi_xu_ly: ""              # đường dẫn đồ thị SNAP (.xml) hoặc script đã dùng
+chua_xem_diem_kiem_tra: true  # xác nhận chưa xem dữ liệu tham chiếu của người kiểm tra
+ghi_chu: ""

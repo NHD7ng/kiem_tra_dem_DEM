@@ -1,0 +1,14 @@
+name: kiem-tra-dem
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - scipy
+  - pyyaml
+  - matplotlib
+  - rasterio
+  - tifffile
+  - pyproj      # tùy chọn: đổi hệ tọa độ bảng điểm
+  - geopandas   # tùy chọn: đọc .gpkg

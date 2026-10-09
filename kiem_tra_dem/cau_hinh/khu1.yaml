@@ -1,0 +1,57 @@
+# Cấu hình kiểm tra DEM khu 1.
+# Đường dẫn tương đối tính từ thư mục chứa file này (cau_hinh/).
+# Mọi ngưỡng là ĐỀ XUẤT: chốt với thầy trước khi chấm thật.
+
+T: 2.0                 # m, ngưỡng RMSE thẳng đứng đã chốt
+T_doc: null            # độ, ngưỡng RMSE độ dốc; null thì không chấm C4
+do_phan_giai: 30       # m, độ phân giải yêu cầu (C6 mục 5)
+
+lop_phu:               # chiều cao tán (m), khoảng [từ, đến)
+  trong: [0, 5]
+  thua: [5, 20]
+  day: [20, 1000000000]
+lop_vung_trong: trong  # lớp dùng để kiểm lỗi hệ thống (C3)
+cao_do_hop_ly: [-50, 300]
+
+he_cao_do:             # bắt buộc khai để C6 mục 1 được 2 điểm
+  dem: null            # bỏ trống thì lấy từ phiếu bàn giao
+  diem: null           # hệ cao độ của z_ref sau khi quy đổi
+
+du_lieu:               # dữ liệu tham chiếu của người kiểm tra
+  diem: ../du_lieu_tham_chieu/khu1_diem_kiem_tra.csv
+  ranh_gioi: ../du_lieu_tham_chieu/khu1_ranh_gioi.geojson
+  tan: ../du_lieu_tham_chieu/khu1_chieu_cao_tan.tif
+
+crs_diem: null         # EPSG của bảng điểm nếu khác DEM (cần pyproj)
+loc_diem: null         # ví dụ: "co_chat_luong == 0"
+
+bootstrap:
+  n: 2000
+  seed: 42
+
+doc_do_doc: {d_min: 80, d_max: 120}   # m, khoảng cách cặp điểm cho C4
+
+kiem_chung:            # C7
+  doc_lap: null        # true khi đã xác nhận người lập DEM chưa xem điểm kiểm tra
+  sha256_diem: null    # mã băm bảng điểm đã đóng băng
+
+kiem_tra_thu_cong:     # C6 mục 3, 4: điền 0, 1 hoặc 2 sau khi xem bản đồ bóng đổ
+  loi_hinh_anh: null   # sọc, bậc thang, hố giả
+  mep_ghep: null       # lệch ở mép ghép
+
+tai_lap:               # C8
+  dung_sai: 0.000001
+  nguon_du_lieu: []    # [{ten, phien_ban, ngay_tai, duong_dan, sha256}]
+  moi_truong: ../environment.yml
+  moi_truong_tao_lai_duoc: null
+  nhat_ky: null
+
+cot:                   # đổi nếu bảng điểm đặt tên cột khác
+  id: id
+  x: x
+  y: y
+  z_ref: z_ref
+  lop: lop
+  tan: chieu_cao_tan
+  tuyen: tuyen
+  thu_tu: thu_tu
